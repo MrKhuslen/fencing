@@ -30,7 +30,7 @@ class Home extends Component {
   }
 
   componentWillMount() {
-    document.querySelector("title").innerHTML = "Admin - E-How";
+    document.querySelector("title").innerHTML = "Бүртгэл";
     this.refreshList();
   }
 

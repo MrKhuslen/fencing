@@ -8,6 +8,7 @@ import { Layout, Menu, Icon, Select } from 'antd';
 import { UserOutlined, VideoCameraOutlined, UploadOutlined, BarChartOutlined, CloudOutlined, AppstoreOutlined, TeamOutlined, ShopOutlined } from '@ant-design/icons';
 import Category from '../Category/index.js';
 import User from '../User/index';
+import Workers from '../Workers/index'
 import 'antd/dist/antd.css';
 import './index.css';
 
@@ -42,20 +43,20 @@ class Home extends Component {
             overflow: 'auto',
             height: '100vh',
             position: 'fixed',
-            left: 0,
+            left: 0
           }}
         >
           <div className="logo" />
           <Menu theme="dark" mode="inline" defaultSelectedKeys={['1']} onClick={this.handleClick}>
             <Menu.Item key="1" icon={<UserOutlined />}>
-              {"Хэрэглэгч"}
+              {"Хяналтын самбар"}
             </Menu.Item>
             <Menu.Item key="2" icon={<VideoCameraOutlined />}>
-              {"Үйлчилгээ"}
+              {"Бүртгэл"}
             </Menu.Item>
             <Menu.Item key="3" icon={<UploadOutlined />}>
-              {"Захиалга"}
-            </Menu.Item>
+              {"Ажилчид"}
+            </Menu.Item>  
           </Menu>
         </Sider>
         <Layout className="site-layout" style={{ marginLeft: 200 }}>
@@ -63,8 +64,9 @@ class Home extends Component {
           <Content style={{ margin: '24px 16px 0', overflow: 'initial' }}>
             {this.state.key === "1" && <User />}
             {this.state.key === "2" && <Category />}
+            {this.state.key === "3" && <Workers />}
           </Content>
-          <Footer style={{ textAlign: 'center' }}>{"IN-TOUCH Admin Web 2021"}</Footer>
+          <Footer style={{ textAlign: 'center' }}>{"Strategy Admin Web 2021 @Copyright"}</Footer>
         </Layout>
       </Layout>
     )
