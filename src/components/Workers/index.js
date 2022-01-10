@@ -21,7 +21,7 @@ class Home extends Component {
         super(props);
         this.state = {
             collapsed: false,
-            tloading: true,
+            tloading: false,
             data: [],
             row: [],
             isModalVisible: false,
@@ -32,7 +32,7 @@ class Home extends Component {
 
     componentWillMount() {
         document.querySelector("title").innerHTML = "Aжилчид";
-        this.refreshList();
+        // this.refreshList();
     }
 
     refreshList = async () => {

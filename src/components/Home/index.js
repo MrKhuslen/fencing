@@ -38,16 +38,16 @@ class Home extends Component {
     const { collapsed } = this.state;
     return (
       <Layout>
-        <Sider
+        {/* <Sider
           style={{
             overflow: 'auto',
             height: '100vh',
             position: 'fixed',
             left: 0
           }}
-        >
+        > */}
           <div className="logo" />
-          <Menu theme="dark" mode="inline" defaultSelectedKeys={['1']} onClick={this.handleClick}>
+          <Menu theme="dark" mode="inline" defaultSelectedKeys={['1']} onClick={this.handleClick} mode="horizontal">
             <Menu.Item key="1" icon={<UserOutlined />}>
               {"Хяналтын самбар"}
             </Menu.Item>
@@ -58,7 +58,7 @@ class Home extends Component {
               {"Ажилчид"}
             </Menu.Item>  
           </Menu>
-        </Sider>
+        {/* </Sider> */}
         <Layout className="site-layout" style={{ marginLeft: 200 }}>
           <Header className="site-layout-background" style={{ padding: 0 }} />
           <Content style={{ margin: '24px 16px 0', overflow: 'initial' }}>
