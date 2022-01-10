@@ -9,6 +9,7 @@
 }
 
 .site-layout .site-layout-background {
+  align-items: center;
   background: #fff;
 }
   [data-theme="dark"] .site-layout .site-layout-background {

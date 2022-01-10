@@ -115,13 +115,11 @@ class Home extends Component {
     const { tloading, data, isModalVisible } = this.state;
     return (
       <div>
-        <Row>
+        <Row style={{margin: "0 70px"}}>
             <Col span={8}>
               <Card
                 hoverable
-                style={{ width: 360 ,
-                         
-                          }}
+                style={{ width: 360 }}
                 cover={<img alt="" src={img2} />}
                 >
                   <Meta title="Шинэ элсэлт авж эхэллээ"  />
@@ -133,7 +131,7 @@ class Home extends Component {
                   style={{ width: 360 }}
                   cover={<img alt="" src={img1} />}
                   >
-                  {/* <Meta title="Туялзуур сэлэм бол гайхамшиг"  /> */}
+                  <Meta title="Туялзуур сэлэм бол гайхамшиг"  />
               </Card>
             </Col>
             <Col span={8}>
@@ -142,7 +140,7 @@ class Home extends Component {
                 style={{ width: 360 }}
                 cover={<img alt="" src={img3} />}
               >
-                {/* <Meta title="Маш олон давуу тал"  /> */}
+                <Meta title="Маш олон давуу тал"  />
               </Card>
             </Col>
           </Row>

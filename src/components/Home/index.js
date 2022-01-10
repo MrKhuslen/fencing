@@ -77,9 +77,9 @@ class Home extends Component {
                   <Menu.Item icon={<InstagramOutlined />}><a href="https://www.instagram.com/duelfencing.club/" ></a></Menu.Item>
           </Menu>
        
-        <Layout className="site-layout" style={{ marginLeft: 200 }}>
-          <Header className="site-layout-background" style={{ padding: 0 }} />
-          <Content style={{ margin: '24px 16px 0', overflow: 'initial' }}>
+        <Layout className="site-layout">
+          <Header className="site-layout-background" />
+          <Content>
             {this.state.key === "1" && <User />}
             {this.state.key === "2" && <Category />}
             {this.state.key === "3" && <Workers />}
