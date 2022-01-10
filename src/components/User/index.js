@@ -1,7 +1,7 @@
 /* eslint-disable array-callback-return */
 import React, { Component } from 'react';
 import axios from "axios"
-import { Layout, Menu, Icon, Card, Table, message, Button, Modal, Form, Input, Upload, Col,Row } from 'antd';
+import { Layout, Menu, Icon, Card, Table, message, Button, Modal, Form, Input, Upload, Col, Row } from 'antd';
 import { UserOutlined, VideoCameraOutlined, UploadOutlined, LockOutlined } from '@ant-design/icons';
 import 'antd/dist/antd.css';
 import tableStyle from './index.css';
@@ -9,7 +9,7 @@ import img1 from '../assets/zurag1.png';
 import img2 from '../assets/zurag2.png';
 import img3 from '../assets/zurag3.png';
 
-const{ Meta } = Card;
+const { Meta } = Card;
 
 const formItemLayout = {
   labelCol: {
@@ -114,38 +114,38 @@ class Home extends Component {
   render() {
     const { tloading, data, isModalVisible } = this.state;
     return (
-      <div>
-        <Row style={{margin: "0 70px"}}>
-            <Col span={8}>
-              <Card
-                hoverable
-                style={{ width: 360 }}
-                cover={<img alt="" src={img2} />}
-                >
-                  <Meta title="Шинэ элсэлт авж эхэллээ"  />
-              </Card>
-            </Col>
-            <Col span={8}>
-              <Card
-                  hoverable
-                  style={{ width: 360 }}
-                  cover={<img alt="" src={img1} />}
-                  >
-                  <Meta title="Туялзуур сэлэм бол гайхамшиг"  />
-              </Card>
-            </Col>
-            <Col span={8}>
-              <Card
-                hoverable
-                style={{ width: 360 }}
-                cover={<img alt="" src={img3} />}
-              >
-                <Meta title="Маш олон давуу тал"  />
-              </Card>
-            </Col>
-          </Row>
+      <div style={{ margin: "0 16em" }}>
+        <Row justify='center'>
+          <Col span={8} style={{ display: "flex", justifyContent: "center" }}>
+            <Card
+              hoverable
+              style={{ width: 360 }}
+              cover={<img alt="" src={img2} />}
+            >
+              <Meta title="Шинэ элсэлт авж эхэллээ" />
+            </Card>
+          </Col>
+          <Col span={8} style={{ display: "flex", justifyContent: "center" }}>
+            <Card
+              hoverable
+              style={{ width: 360 }}
+              cover={<img alt="" src={img1} />}
+            >
+              <Meta title="Туялзуур сэлэм бол гайхамшиг" />
+            </Card>
+          </Col>
+          <Col span={8} style={{ display: "flex", justifyContent: "center" }}>
+            <Card
+              hoverable
+              style={{ width: 360 }}
+              cover={<img alt="" src={img3} />}
+            >
+              <Meta title="Маш олон давуу тал" />
+            </Card>
+          </Col>
+        </Row>
 
-          
+
       </div>
     )
   }
