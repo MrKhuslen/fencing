@@ -9,6 +9,8 @@ import img1 from '../assets/zurag1.png';
 import img2 from '../assets/zurag2.png';
 import img3 from '../assets/zurag3.png';
 
+const{ Meta } = Card;
+
 const formItemLayout = {
   labelCol: {
     span: 6,
@@ -122,7 +124,7 @@ class Home extends Component {
                           }}
                 cover={<img alt="" src={img2} />}
                 >
-                  {/* <Meta title="Шинэ элсэлт авж эхэллээ"  /> */}
+                  <Meta title="Шинэ элсэлт авж эхэллээ"  />
               </Card>
             </Col>
             <Col span={8}>

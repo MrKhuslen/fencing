@@ -48,15 +48,28 @@ class Home extends Component {
             <Menu.Item key="1" icon={<HomeOutlined />}>
               {"Нүүр хуудас"}
             </Menu.Item>
-            <Menu.Item key="2" icon={<TrophyOutlined />}>
-              {"Тэмцээний мэдээлэл"}
-            </Menu.Item>
-            <Menu.Item key="3" icon={<TeamOutlined />}>
-              {"Чансаа"}
-            </Menu.Item>  
-            <Menu.Item key="4" icon={<UserOutlined />}>
-              {"Туялзуур сэлэм"}
-            </Menu.Item>  
+            <SubMenu key="2" icon={<TrophyOutlined />}  title={ 
+                      <span>Тэмцээний мэдээлэл </span>}>
+                      <Menu.ItemGroup  key="Chansaa" title=''>
+                          <Menu.Item key='bolson'>Болж өнгөрсөн</Menu.Item>
+                          <Menu.Item key='boloh'>Удахгүй болох</Menu.Item>
+                      </Menu.ItemGroup>
+                  </SubMenu>
+
+            <SubMenu key="3" icon={<TeamOutlined />}  title={ 
+                      <span> Чансаа </span>}>
+                      <Menu.ItemGroup  key="Chansaa" title=''>
+                          <Menu.Item key='er'>Эрэгтэй</Menu.Item>
+                          <Menu.Item key='em'>Эмэгтэй</Menu.Item>
+                      </Menu.ItemGroup>
+                  </SubMenu>
+              
+
+            <SubMenu key="4" icon={<UserOutlined />}  title={<span>Туялзуур сэлэм </span>}>
+                            <Menu.Item key='hungun'>Хөнгөн сэлэм</Menu.Item>
+                            <Menu.Item key='hvnd'>Хүнд сэлэм</Menu.Item>
+                            <Menu.Item key='ild'>Илдэн сэлэм</Menu.Item>
+            </SubMenu> 
             <Menu.Item key="5" icon={<UploadOutlined />}>
               {"Бүртгүүлэх"}
             </Menu.Item>  

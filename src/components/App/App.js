@@ -39,13 +39,12 @@ class App extends Component {
     return (
       <Router>
         <div>
-
-         
+ 
           <Switch>
             <Route path="/login" component={Login} />
             <Route path="/home" component={Home} />
             <Route path="/" component={Main} />
-          </Switch>
+          </Switch> 
         </div>
       </Router>
     )
