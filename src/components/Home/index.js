@@ -6,13 +6,20 @@ import { Route, Switch, Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { Layout, Menu, Icon, Select } from 'antd';
 import { UserOutlined, FacebookOutlined, UploadOutlined, HomeOutlined, TrophyOutlined, InstagramOutlined, TeamOutlined, ShopOutlined } from '@ant-design/icons';
-import Category from '../Category/index.js';
+import Temtseen from '../Temtseen/index.js';
 import User from '../User/index';
-import Workers from '../Workers/index'
+import Chansaa from '../Chansaa/index'
 import 'antd/dist/antd.css';
 import './index.css';
 import Fencing from '../Fencing/index'
 import Elselt from '../Elselt/index'
+import Boloh from '../Temtseen/boloh/index'
+import Bolson from '../Temtseen/bolson/index'
+import Eregtei from '../Chansaa/eregtei/index'
+import Emegtei from '../Chansaa/emegtei/index'
+import Hungun from '../Fencing/hungun_selem/index'
+import Hvnd from '../Fencing/hvnd_selem /index'
+import Ild from '../Fencing/ild_selem /index'
 
 const { Header, Content, Footer, Sider } = Layout;
 
@@ -42,7 +49,7 @@ class Home extends Component {
       <Layout>
         
           <div className="homelogo">
-            FENCING.NET
+            DUEL FENCING CLUB
           </div>
           <Menu theme="dark" mode="inline" defaultSelectedKeys={['1']} onClick={this.handleClick} mode="horizontal" style={{ textAlign: 'center' }}>
             <Menu.Item key="1" icon={<HomeOutlined />}>
@@ -50,25 +57,25 @@ class Home extends Component {
             </Menu.Item>
             <SubMenu key="2" icon={<TrophyOutlined />}  title={ 
                       <span>Тэмцээний мэдээлэл </span>}>
-                      <Menu.ItemGroup  key="Chansaa" title=''>
-                          <Menu.Item key='bolson'>Болж өнгөрсөн</Menu.Item>
-                          <Menu.Item key='boloh'>Удахгүй болох</Menu.Item>
+                      <Menu.ItemGroup   title=''>
+                          <Menu.Item key='6'>Болж өнгөрсөн</Menu.Item>
+                          <Menu.Item key='7'>Удахгүй болох</Menu.Item>
                       </Menu.ItemGroup>
                   </SubMenu>
 
             <SubMenu key="3" icon={<TeamOutlined />}  title={ 
                       <span> Чансаа </span>}>
-                      <Menu.ItemGroup  key="Chansaa" title=''>
-                          <Menu.Item key='er'>Эрэгтэй</Menu.Item>
-                          <Menu.Item key='em'>Эмэгтэй</Menu.Item>
+                      <Menu.ItemGroup  title=''>
+                          <Menu.Item key='8'>Эрэгтэй</Menu.Item>
+                          <Menu.Item key='9'>Эмэгтэй</Menu.Item>
                       </Menu.ItemGroup>
                   </SubMenu>
               
 
             <SubMenu key="4" icon={<UserOutlined />}  title={<span>Туялзуур сэлэм </span>}>
-                            <Menu.Item key='hungun'>Хөнгөн сэлэм</Menu.Item>
-                            <Menu.Item key='hvnd'>Хүнд сэлэм</Menu.Item>
-                            <Menu.Item key='ild'>Илдэн сэлэм</Menu.Item>
+                            <Menu.Item key='10'>Хөнгөн сэлэм</Menu.Item>
+                            <Menu.Item key='11'>Хүнд сэлэм</Menu.Item>
+                            <Menu.Item key='12'>Илдэн сэлэм</Menu.Item>
             </SubMenu> 
             <Menu.Item key="5" icon={<UploadOutlined />}>
               {"Бүртгүүлэх"}
@@ -78,15 +85,22 @@ class Home extends Component {
           </Menu>
        
         <Layout className="site-layout">
-          <Header className="site-layout-background" />
-          <Content>
+          <Header className="site-layout-background" style={{ padding: 0 }} />
+          <Content className="homeBackground" style={{ margin: '24px 0 0 0', overflow: 'initial' }}>
             {this.state.key === "1" && <User />}
-            {this.state.key === "2" && <Category />}
-            {this.state.key === "3" && <Workers />}
+            {this.state.key === "2" && <Temtseen />}
+            {this.state.key === "3" && <Chansaa />}
             {this.state.key === "4" && <Fencing />}
             {this.state.key === "5" && <Elselt />}
+            {this.state.key === "6" && <Bolson />}
+            {this.state.key === "7" && <Boloh />}
+            {this.state.key === "8" && <Eregtei />}
+            {this.state.key === "9" && <Emegtei />}
+            {this.state.key === "10" && <Hungun />}
+            {this.state.key === "11" && <Hvnd />}
+            {this.state.key === "12" && <Ild />}
           </Content>
-          <Footer style={{ textAlign: 'center' }}>{"Strategy Admin Web 2021 @Copyright"}</Footer>
+          <Footer style={{ textAlign: 'center' }}>{" Ant Design Layout example ©2022 Created by  DataCare"}</Footer>
         </Layout>
       </Layout>
     )

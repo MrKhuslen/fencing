@@ -1,10 +1,14 @@
 /* eslint-disable array-callback-return */
 import React, { Component } from 'react';
 import axios from "axios"
-import { Layout, Menu, Icon, Select, Table, message, Button, Modal, Form, Input, Upload } from 'antd';
+import { Layout, Menu, Icon, Carousel, img, message, Button, Modal, Form, Input, Upload } from 'antd';
 import { UserOutlined, VideoCameraOutlined, UploadOutlined, LockOutlined } from '@ant-design/icons';
 import 'antd/dist/antd.css';
 import tableStyle from './index.css';
+// import img4 from '../assets/zurag4.jpg';
+// import img5 from '../assets/zurag5.jpg';
+// import img6 from '../assets/zurag6.jpg';
+
 
 const formItemLayout = {
   labelCol: {
@@ -110,7 +114,21 @@ class Home extends Component {
     const { tloading, data, isModalVisible } = this.state;
     return (
       <div>
-       
+       <div>
+        {/* <Carousel autoplay  >
+              <div className="contentStyle">
+              <img alt="" src={img4} />
+              </div>
+              <div  className="contentStyle">
+              <img alt="" src={img5} />
+              </div>
+              <div className="contentStyle">
+              <img alt="" src={img6} />
+              </div>
+              
+            </Carousel> */}
+
+</div>
       </div>
     )
   }

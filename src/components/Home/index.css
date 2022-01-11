@@ -1,3 +1,6 @@
+.homeBackground {
+  /* background-image: url(../assets/card3.jpeg); */
+}
 .homelogo {
   height: 50px;
   background-color: black;
@@ -15,3 +18,4 @@
   [data-theme="dark"] .site-layout .site-layout-background {
     background: #ffff;
   }
+  
