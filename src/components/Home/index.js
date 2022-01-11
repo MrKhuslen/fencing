@@ -8,18 +8,18 @@ import { Layout, Menu, Icon, Select } from 'antd';
 import { UserOutlined, FacebookOutlined, UploadOutlined, HomeOutlined, TrophyOutlined, InstagramOutlined, TeamOutlined, ShopOutlined } from '@ant-design/icons';
 import Temtseen from '../Temtseen/index.js';
 import User from '../User/index';
-import Chansaa from '../Chansaa/index'
+import Chansaa from '../Chansaa/index';
 import 'antd/dist/antd.css';
 import './index.css';
-import Fencing from '../Fencing/index'
-import Elselt from '../Elselt/index'
-import Boloh from '../Temtseen/boloh/index'
-import Bolson from '../Temtseen/bolson/index'
-import Eregtei from '../Chansaa/eregtei/index'
-import Emegtei from '../Chansaa/emegtei/index'
-import Hungun from '../Fencing/hungun_selem/index'
-import Hvnd from '../Fencing/hvnd_selem /index'
-import Ild from '../Fencing/ild_selem /index'
+import Fencing from '../Fencing/index';
+import Elselt from '../Elselt/index';
+import Boloh from '../Temtseen/boloh/index';
+import Bolson from '../Temtseen/bolson/index';
+import Eregtei from '../Chansaa/eregtei/index';
+import Emegtei from '../Chansaa/emegtei/index';
+import Hungun from '../Fencing/hungun_selem/index';
+import Hvnd from "../Fencing/hvnd_selem";
+import Ild from "../Fencing/ild_selem";
 
 const { Header, Content, Footer, Sider } = Layout;
 
