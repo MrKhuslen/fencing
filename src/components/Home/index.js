@@ -5,7 +5,7 @@ import { bindActionCreators } from "redux";
 import { Route, Switch, Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { Layout, Menu, Icon, Select } from 'antd';
-import { UserOutlined, FacebookOutlined, UploadOutlined, HomeOutlined, TrophyOutlined, InstagramOutlined, TeamOutlined, ShopOutlined } from '@ant-design/icons';
+import { UserOutlined, FacebookOutlined, UploadOutlined, HomeOutlined, TrophyOutlined, InstagramOutlined, TeamOutlined, MenuUnfoldOutlined } from '@ant-design/icons';
 import Temtseen from '../Temtseen/index.js';
 import User from '../User/index';
 import Chansaa from '../Chansaa/index';
@@ -20,6 +20,7 @@ import Emegtei from '../Chansaa/emegtei/index';
 import Hungun from '../Fencing/hungun_selem/index';
 import Hvnd from "../Fencing/hvnd_selem";
 import Ild from "../Fencing/ild_selem";
+import HMenu from "../HMenu"
 
 const { Header, Content, Footer, Sider } = Layout;
 
@@ -52,6 +53,9 @@ class Home extends Component {
             DUEL FENCING CLUB
           </div>
           <Menu theme="dark" mode="inline" defaultSelectedKeys={['1']} onClick={this.handleClick} mode="horizontal" style={{ textAlign: 'center' }}>
+          <Menu.Item key="0" icon={<MenuUnfoldOutlined />}>
+              
+            </Menu.Item>
             <Menu.Item key="1" icon={<HomeOutlined />}>
               {"Нүүр хуудас"}
             </Menu.Item>
@@ -85,8 +89,9 @@ class Home extends Component {
           </Menu>
        
         <Layout className="site-layout">
-          <Header className="site-layout-background" style={{ padding: 0 }} />
+          
           <Content className="homeBackground" style={{ margin: '24px 0 0 0', overflow: 'initial' }}>
+            {this.state.key === "0" && <HMenu />}
             {this.state.key === "1" && <User />}
             {this.state.key === "2" && <Temtseen />}
             {this.state.key === "3" && <Chansaa />}

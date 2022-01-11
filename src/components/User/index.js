@@ -1,7 +1,17 @@
 /* eslint-disable array-callback-return */
 import React, { Component } from "react";
 import axios from "axios";
-import {List,Card,message,Affix,Col,Row,Space} from "antd";
+import {
+  List,
+  Card,
+  message,
+  Affix,
+  Col,
+  Row,
+  Space,
+  Divider,
+  Radio,
+} from "antd";
 import "antd/dist/antd.css";
 import tableStyle from "./index.css";
 import img1 from "../assets/zurag1.png";
@@ -12,9 +22,14 @@ import img5 from "../assets/uat1.jpeg";
 import img6 from "../assets/card3.jpeg";
 import img7 from "../assets/card2.jpeg";
 
-
+const options = [
+  { label: "FEATURED", value: 1 },
+  { label: "NEWS", value: 2 },
+  { label: "RECENT", value: 3 },
+];
 const listData = [];
 for (let i = 0; i < 13; i++) {
+  <Divider />;
   listData.push({
     href: "https://ant.design",
     title: `Багачуудын УАШТ `,
@@ -24,37 +39,61 @@ for (let i = 0; i < 13; i++) {
       "We supply a series of design principles, practical patterns and high quality design resources (Sketch and Axure), to help people create their product prototypes beautifully and efficiently.",
   });
 }
-const listedData = [];
+const listFeatured = [];
 for (let i = 0; i < 2; i++) {
-  listedData.push({
+  <Divider />;
+  listFeatured.push({
     href: "https://ant.design",
     title: `УЛСЫН АВАРГА ШАЛГАРУУЛАХ ТЭМЦЭЭН `,
 
     description: "",
-    content:
-      "We supply a series of design principles, practical patterns and high quality design resources (Sketch and Axure), to help people create their product prototypes beautifully and efficiently.",
+    content: "We supply a series of design principles.",
   });
 }
+const listNews = [];
+for (let i = 0; i < 2; i++) {
+  <Divider />;
+  listNews.push({
+    href: "https://ant.design",
+    title: `--- HI -----`,
+
+    description: "",
+    content: "We supply a series of design principles.",
+  });
+}
+
+const listRecent = [];
+for (let i = 0; i < 2; i++) {
+  <Divider />;
+  listRecent.push({
+    href: "https://ant.design",
+    title: `TEST`,
+
+    description: "",
+    content: "We supply a series of design principles.",
+  });
+}
+
 const listData1 = [];
 for (let i = 0; i < 3; i++) {
+  <Divider />;
   listData1.push({
     href: "https://ant.design",
     title: `Мэдээлэл `,
 
     description: "Сайн байна",
-    content:
-      "Хамгийн сонин мэдээлэл",
+    content: "Хамгийн сонин мэдээлэл",
   });
 }
 const listData2 = [];
 for (let i = 0; i < 3; i++) {
+  <Divider />;
   listData2.push({
     href: "https://ant.design",
     title: `Мэдээ `,
 
     description: "мундаг",
-    content:
-      "Хамгийн сонирхолтой мэдээ",
+    content: "Хамгийн сонирхолтой мэдээ",
   });
 }
 
@@ -87,6 +126,7 @@ class Home extends Component {
       isModalVisible: false,
       setIsModalVisible: false,
       file: [],
+      radiobutton: 1,
     };
   }
 
@@ -167,8 +207,13 @@ class Home extends Component {
     return e && e.fileList;
   };
 
+  handleRadioChange = (e) => {
+    this.setState({ radiobutton: e.target.value });
+  };
+
   render() {
     const { tloading, data, isModalVisible } = this.state;
+    const { value1, value2, value3, value4 } = this.state;
     return (
       <div style={{ margin: "0 16em" }}>
         <Row justify="center">
@@ -203,6 +248,7 @@ class Home extends Component {
         <div>
           <Row>
             <Col span={16}>
+              <br />
               <List
                 itemLayout="vertical"
                 size="large"
@@ -212,12 +258,10 @@ class Home extends Component {
                   },
                   pageSize: 7,
                 }}
-                dataSource={listData}
-                footer={<div></div>}
                 renderItem={(item) => (
                   <List.Item
-                    key={item.title}
                     extra={<img width={272} alt="logo" src={img4} />}
+                    key={item.title}
                   >
                     <List.Item.Meta
                       title={<a href={item.href}>{item.title}</a>}
@@ -226,84 +270,136 @@ class Home extends Component {
                     {item.content}
                   </List.Item>
                 )}
-              />,
+                dataSource={listData}
+                footer={<div></div>}
+              />
+              ,
             </Col>
 
             <Col span={8}>
-              <Affix
-                offset={120}
-                onChange={(affixed) => console.log(affixed)}
-              >
-                <List
-                  itemLayout="vertical"
-                  size="large"
-                  dataSource={listedData}
-                  footer={<div></div>}
-                  renderItem={(item) => (
-                    <List.Item
-                      key={item.title}
-                      extra={<img width={95} alt="logo" src={img5} />}
-                    >
-                      <List.Item.Meta
-                        title={<a href={item.href}>{item.title}</a>}
-                        description={item.description}
-                      />
-                      {item.content}
-                    </List.Item>
-                  )}
-                />
-                ,
+              <br />
+              <Affix offset={120} onChange={(affixed) => console.log(affixed)}>
+                <center>
+                  <Radio.Group
+                    options={options}
+                    onChange={this.handleRadioChange}
+                    style={{ textAlign: "center" }}
+                    defaultValue={1}
+                    optionType="button"
+                  />
+                </center>
+                <br />
+                {this.state.radiobutton === 1 ? (
+                  <List
+                    itemLayout="vertical"
+                    size="large"
+                    dataSource={listFeatured}
+                    footer={<div></div>}
+                    renderItem={(item) => (
+                      <List.Item
+                        key={item.title}
+                        extra={<img width={95} alt="logo" src={img5} />}
+                      >
+                        <List.Item.Meta
+                          title={<a href={item.href}>{item.title}</a>}
+                          description={item.description}
+                        />
+                        {item.content}
+                      </List.Item>
+                    )}
+                  />
+                ) : this.state.radiobutton === 2 ? (
+                  <List
+                    itemLayout="vertical"
+                    size="large"
+                    dataSource={listNews}
+                    footer={<div></div>}
+                    renderItem={(item) => (
+                      <List.Item
+                        key={item.title}
+                        extra={<img width={95} alt="logo" src={img5} />}
+                      >
+                        <List.Item.Meta
+                          title={<a href={item.href}>{item.title}</a>}
+                          description={item.description}
+                        />
+                        {item.content}
+                      </List.Item>
+                    )}
+                  />
+                ) : (
+                  <List
+                    itemLayout="vertical"
+                    size="large"
+                    dataSource={listRecent}
+                    footer={<div></div>}
+                    renderItem={(item) => (
+                      <List.Item
+                        key={item.title}
+                        extra={<img width={95} alt="logo" src={img5} />}
+                      >
+                        <List.Item.Meta
+                          title={<a href={item.href}>{item.title}</a>}
+                          description={item.description}
+                        />
+                        {item.content}
+                      </List.Item>
+                    )}
+                  />
+                )}
               </Affix>
             </Col>
           </Row>
         </div>
-       <div><h2 >Features and Guides</h2>
-          <Row >
+        <Divider />
+        <div>
+          <h2>Features and Guides</h2>
+          <Row>
             <Col span={12}>
-            <List
-                  itemLayout="vertical"
-                  size="large"
-                  dataSource={listData1}
-                  footer={<div></div>}
-                  renderItem={(item) => (
-                    <List.Item
-                      key={item.title}
-                      extra={<img width={110} alt="logo" src={img6} />}
-                    >
-                      <List.Item.Meta
-                        title={<a href={item.href}>{item.title}</a>}
-                        description={item.description}
-                      />
-                      {item.content}
-                    </List.Item>
-                  )}
-                />
-                ,
+              <List
+                itemLayout="vertical"
+                size="large"
+                dataSource={listData1}
+                footer={<div></div>}
+                renderItem={(item) => (
+                  <List.Item
+                    key={item.title}
+                    extra={<img width={110} alt="logo" src={img6} />}
+                  >
+                    <List.Item.Meta
+                      title={<a href={item.href}>{item.title}</a>}
+                      description={item.description}
+                    />
+                    {item.content}
+                  </List.Item>
+                )}
+              />
+              ,
             </Col>
+
             <Col span={12}>
-            <List
-                  itemLayout="vertical"
-                  size="large"
-                  dataSource={listData2}
-                  footer={<div></div>}
-                  renderItem={(item) => (
-                    <List.Item
-                      key={item.title}
-                      extra={<img width={110} alt="logo" src={img7} />}
-                    >
-                      <List.Item.Meta
-                        title={<a href={item.href}>{item.title}</a>}
-                        description={item.description}
-                      />
-                      {item.content}
-                    </List.Item>
-                  )}
-                />
-                ,
+              <List
+                itemLayout="vertical"
+                size="large"
+                dataSource={listData2}
+                footer={<div></div>}
+                renderItem={(item) => (
+                  <List.Item
+                    key={item.title}
+                    extra={<img width={110} alt="logo" src={img7} />}
+                  >
+                    <List.Item.Meta
+                      title={<a href={item.href}>{item.title}</a>}
+                      description={item.description}
+                    />
+                    {item.content}
+                  </List.Item>
+                )}
+              />
+              ,
             </Col>
           </Row>
-
-       </div>
+        </div>
       </div>
     );
   }

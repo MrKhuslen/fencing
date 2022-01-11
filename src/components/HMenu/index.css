@@ -1,0 +1,21 @@
+.homeBackground {
+  /* background-image: url(../assets/card3.jpeg); */
+}
+.homelogo {
+  height: 50px;
+  background-color: black;
+  color: green;
+  font-size: larger;
+  font-weight: bolder;
+  text-align: center;
+  padding: 15px 0 0 0;
+}
+
+.site-layout .site-layout-background {
+  align-items: center;
+  background: #fff;
+}
+  [data-theme="dark"] .site-layout .site-layout-background {
+    background: #ffff;
+  }
+  
