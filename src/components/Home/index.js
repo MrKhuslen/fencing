@@ -20,7 +20,6 @@ import Emegtei from '../Chansaa/emegtei/index';
 import Hungun from '../Fencing/hungun_selem/index';
 import Hvnd from "../Fencing/hvnd_selem";
 import Ild from "../Fencing/ild_selem";
-import HMenu from "../HMenu"
 
 const { Header, Content, Footer, Sider } = Layout;
 
@@ -32,6 +31,7 @@ class Home extends Component {
     this.state = {
       collapsed: false,
       key: "1",
+      isdrawer: false,
     };
   }
 
@@ -44,55 +44,54 @@ class Home extends Component {
     console.log('click ', e);
     this.setState({ key: e.key });
   };
+  handleDrawer = () => {
+    this.setState({ isdrawer: !this.state.isdrawer, ishome: true });
+  }
   render() {
     const { collapsed } = this.state;
     return (
       <Layout>
-        
-          <div className="homelogo">
-            DUEL FENCING CLUB
-          </div>
-          <Menu theme="dark" mode="inline" defaultSelectedKeys={['1']} onClick={this.handleClick} mode="horizontal" style={{ textAlign: 'center' }}>
-          <Menu.Item key="0" icon={<MenuUnfoldOutlined />}>
-              
-            </Menu.Item>
-            <Menu.Item key="1" icon={<HomeOutlined />}>
-              {"Нүүр хуудас"}
-            </Menu.Item>
-            <SubMenu key="2" icon={<TrophyOutlined />}  title={ 
-                      <span>Тэмцээний мэдээлэл </span>}>
-                      <Menu.ItemGroup   title=''>
-                          <Menu.Item key='6'>Болж өнгөрсөн</Menu.Item>
-                          <Menu.Item key='7'>Удахгүй болох</Menu.Item>
-                      </Menu.ItemGroup>
-                  </SubMenu>
 
-            <SubMenu key="3" icon={<TeamOutlined />}  title={ 
-                      <span> Чансаа </span>}>
-                      <Menu.ItemGroup  title=''>
-                          <Menu.Item key='8'>Эрэгтэй</Menu.Item>
-                          <Menu.Item key='9'>Эмэгтэй</Menu.Item>
-                      </Menu.ItemGroup>
-                  </SubMenu>
-              
+        <div className="homelogo">
+          DUEL FENCING CLUB
+        </div>
+        <Menu theme="dark" mode="inline" defaultSelectedKeys={['1']} onClick={this.handleClick} mode="horizontal" style={{ textAlign: 'center' }}>
+          <Menu.Item key="0" icon={<MenuUnfoldOutlined />} onClick={this.handleDrawer} />
+          <Menu.Item key="1" icon={<HomeOutlined />}>
+            {"Нүүр хуудас"}
+          </Menu.Item>
+          <SubMenu key="2" icon={<TrophyOutlined />} title={
+            <span>Тэмцээний мэдээлэл </span>}>
+            <Menu.ItemGroup title=''>
+              <Menu.Item key='6'>Болж өнгөрсөн</Menu.Item>
+              <Menu.Item key='7'>Удахгүй болох</Menu.Item>
+            </Menu.ItemGroup>
+          </SubMenu>
 
-            <SubMenu key="4" icon={<UserOutlined />}  title={<span>Туялзуур сэлэм </span>}>
-                            <Menu.Item key='10'>Хөнгөн сэлэм</Menu.Item>
-                            <Menu.Item key='11'>Хүнд сэлэм</Menu.Item>
-                            <Menu.Item key='12'>Илдэн сэлэм</Menu.Item>
-            </SubMenu> 
-            <Menu.Item key="5" icon={<UploadOutlined />}>
-              {"Бүртгүүлэх"}
-            </Menu.Item>  
-            <Menu.Item icon={<FacebookOutlined /> }><a href="https://www.facebook.com/DUELfencingclub" ></a></Menu.Item>
-                  <Menu.Item icon={<InstagramOutlined />}><a href="https://www.instagram.com/duelfencing.club/" ></a></Menu.Item>
-          </Menu>
-       
-        <Layout className="site-layout">
-          
+          <SubMenu key="3" icon={<TeamOutlined />} title={
+            <span> Чансаа </span>}>
+            <Menu.ItemGroup title=''>
+              <Menu.Item key='8'>Эрэгтэй</Menu.Item>
+              <Menu.Item key='9'>Эмэгтэй</Menu.Item>
+            </Menu.ItemGroup>
+          </SubMenu>
+
+
+          <SubMenu key="4" icon={<UserOutlined />} title={<span>Туялзуур сэлэм </span>}>
+            <Menu.Item key='10'>Хөнгөн сэлэм</Menu.Item>
+            <Menu.Item key='11'>Хүнд сэлэм</Menu.Item>
+            <Menu.Item key='12'>Илдэн сэлэм</Menu.Item>
+          </SubMenu>
+          <Menu.Item key="5" icon={<UploadOutlined />}>
+            {"Бүртгүүлэх"}
+          </Menu.Item>
+          <Menu.Item icon={<FacebookOutlined />}><a href="https://www.facebook.com/DUELfencingclub" ></a></Menu.Item>
+          <Menu.Item icon={<InstagramOutlined />}><a href="https://www.instagram.com/duelfencing.club/" ></a></Menu.Item>
+        </Menu>
+
+        <div className="site-layout">
           <Content className="homeBackground" style={{ margin: '24px 0 0 0', overflow: 'initial' }}>
-            {this.state.key === "0" && <HMenu />}
-            {this.state.key === "1" && <User />}
+            {this.state.key === "1" && <User nuguudrawer={this.state.isdrawer} ishome={this.state.ishome} handleClose={this.handleDrawer} />}
             {this.state.key === "2" && <Temtseen />}
             {this.state.key === "3" && <Chansaa />}
             {this.state.key === "4" && <Fencing />}
@@ -106,7 +105,7 @@ class Home extends Component {
             {this.state.key === "12" && <Ild />}
           </Content>
           <Footer style={{ textAlign: 'center' }}>{" Ant Design Layout example ©2022 Created by  DataCare"}</Footer>
-        </Layout>
+        </div>
       </Layout>
     )
   }

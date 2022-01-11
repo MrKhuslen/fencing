@@ -11,6 +11,7 @@ import {
   Space,
   Divider,
   Radio,
+  Drawer,
 } from "antd";
 import "antd/dist/antd.css";
 import tableStyle from "./index.css";
@@ -32,7 +33,7 @@ for (let i = 0; i < 13; i++) {
   <Divider />;
   listData.push({
     href: "https://ant.design",
-    title: `Багачуудын УАШТ `,
+    title: `Багачуудын УАШТ ${i}`,
 
     description: "",
     content:
@@ -40,12 +41,12 @@ for (let i = 0; i < 13; i++) {
   });
 }
 const listFeatured = [];
-for (let i = 0; i < 2; i++) {
+for (let i = 1; i < 3; i++) {
   <Divider />;
   listFeatured.push({
     href: "https://ant.design",
-    title: `УЛСЫН АВАРГА ШАЛГАРУУЛАХ ТЭМЦЭЭН `,
-
+    key: i,
+    text: 'УЛСЫН АВАРГА ШАЛГАРУУЛАХ ТЭМЦЭЭН',
     description: "",
     content: "We supply a series of design principles.",
   });
@@ -55,8 +56,7 @@ for (let i = 0; i < 2; i++) {
   <Divider />;
   listNews.push({
     href: "https://ant.design",
-    title: `--- HI -----`,
-
+    txt: `News ${i}`,
     description: "",
     content: "We supply a series of design principles.",
   });
@@ -67,8 +67,7 @@ for (let i = 0; i < 2; i++) {
   <Divider />;
   listRecent.push({
     href: "https://ant.design",
-    title: `TEST`,
-
+    title: `Recent ${i}`,
     description: "",
     content: "We supply a series of design principles.",
   });
@@ -79,7 +78,7 @@ for (let i = 0; i < 3; i++) {
   <Divider />;
   listData1.push({
     href: "https://ant.design",
-    title: `Мэдээлэл `,
+    title: `Мэдээлэл ${i}`,
 
     description: "Сайн байна",
     content: "Хамгийн сонин мэдээлэл",
@@ -90,30 +89,14 @@ for (let i = 0; i < 3; i++) {
   <Divider />;
   listData2.push({
     href: "https://ant.design",
-    title: `Мэдээ `,
+    title: `Мэдээ ${i}`,
 
     description: "мундаг",
     content: "Хамгийн сонирхолтой мэдээ",
   });
 }
 
-const IconText = ({ icon, text }) => (
-  <Space>
-    {React.createElement(icon)}
-    {text}
-  </Space>
-);
-
 const { Meta } = Card;
-
-const formItemLayout = {
-  labelCol: {
-    span: 6,
-  },
-  wrapperCol: {
-    span: 14,
-  },
-};
 
 class Home extends Component {
   constructor(props) {
@@ -164,48 +147,9 @@ class Home extends Component {
       },
     };
 
-    let res = await axios(options).catch((err) => {});
+    let res = await axios(options).catch((err) => { });
   };
 
-  onCollapse = (collapsed) => {
-    console.log(collapsed);
-    this.setState({ collapsed });
-  };
-
-  handleRowClick = (record) => {
-    this.setState({ row: record });
-  };
-  handleRowClass = (record) =>
-    record.id === this.state.row.id ? tableStyle.selected : "";
-
-  showModal = () => {
-    this.setState({ isModalVisible: true });
-  };
-
-  handleOk = () => {
-    this.setState({ isModalVisible: false });
-  };
-
-  handleCancel = () => {
-    this.setState({ isModalVisible: false });
-  };
-
-  handleChangeImg = ({ fileList }) => {
-    if (this.state.size) {
-      this.setState({ file: fileList });
-      this.props.form.setFieldsValue({ file: fileList });
-    }
-  };
-
-  normFile = (e) => {
-    console.log("Upload event:", e);
-
-    if (Array.isArray(e)) {
-      return e;
-    }
-
-    return e && e.fileList;
-  };
 
   handleRadioChange = (e) => {
     this.setState({ radiobutton: e.target.value });
@@ -214,6 +158,7 @@ class Home extends Component {
   render() {
     const { tloading, data, isModalVisible } = this.state;
     const { value1, value2, value3, value4 } = this.state;
+    const { nuguudrawer, handleClose } = this.props;
     return (
       <div style={{ margin: "0 16em" }}>
         <Row justify="center">
@@ -297,11 +242,11 @@ class Home extends Component {
                     footer={<div></div>}
                     renderItem={(item) => (
                       <List.Item
-                        key={item.title}
+                        key={item.key}
                         extra={<img width={95} alt="logo" src={img5} />}
                       >
                         <List.Item.Meta
-                          title={<a href={item.href}>{item.title}</a>}
+                          title={<a href={item.href}>{item.text}</a>}
                           description={item.description}
                         />
                         {item.content}
@@ -316,11 +261,11 @@ class Home extends Component {
                     footer={<div></div>}
                     renderItem={(item) => (
                       <List.Item
-                        key={item.title}
+                        key={item.txt}
                         extra={<img width={95} alt="logo" src={img5} />}
                       >
                         <List.Item.Meta
-                          title={<a href={item.href}>{item.title}</a>}
+                          title={<a href={item.href}>{item.txt}</a>}
                           description={item.description}
                         />
                         {item.content}
@@ -400,6 +345,17 @@ class Home extends Component {
             </Col>
           </Row>
         </div>
+        <Drawer
+          title={`Drawer`}
+          placement="right"
+          size={720}
+          onClose={handleClose}
+          visible={nuguudrawer && this.props.ishome}
+        >
+          <p>Some contents...</p>
+          <p>Some contents...</p>
+          <p>Some contents...</p>
+        </Drawer>
       </div>
     );
   }
