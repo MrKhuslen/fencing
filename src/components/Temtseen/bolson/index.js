@@ -1,33 +1,27 @@
-/* eslint-disable array-callback-return */
-import React, { Component } from 'react';
-import axios from "axios"
-import {  List, Avatar, Space, Row, Col, Icon, Carousel, img, message, Button, Modal, Form, Input, Upload } from 'antd';
-import { UserOutlined, MessageOutlined, LikeOutlined, StarOutlined, UploadOutlined, LockOutlined } from '@ant-design/icons';
-import 'antd/dist/antd.css';
-import tableStyle from './index.css';
- import img4 from '../../assets/zurag11.jpg';
-
-
+import React, { Component } from "react";
+import {
+  List,
+  Space,
+  Row,
+  Col
+} from "antd";
+import "antd/dist/antd.css";
+import tableStyle from "./index.css";
+import img4 from "../../assets/zurag11.jpg";
 
 const listData = [];
 for (let i = 0; i < 9; i++) {
   listData.push({
-    href: 'https://ant.design',
+    href: "https://ant.design",
     title: `Багачуудын УАШТ ${i}`,
-    avatar: 'https://joeschmoe.io/api/v1/random',
-    description:
-      '',
+    avatar: "https://joeschmoe.io/api/v1/random",
+    description: "",
     content:
-      'We supply a series of design principles, practical patterns and high quality design resources (Sketch and Axure), to help people create their product prototypes beautifully and efficiently.',
+      "We supply a series of design principles, practical patterns and high quality design resources (Sketch and Axure), to help people create their product prototypes beautifully and efficiently.",
   });
 }
 
-const IconText = ({ icon, text }) => (
-  <Space>
-    {React.createElement(icon)}
-    {text}
-  </Space>
-);
+
 const formItemLayout = {
   labelCol: {
     span: 6,
@@ -77,7 +71,6 @@ class Home extends Component {
   //   test.append("json", JSON.stringify(values))
   //   console.log(values)
 
-
   //   const options = {
   //     method: "POST",
   //     data: test,
@@ -91,13 +84,16 @@ class Home extends Component {
   //   });
   // };
 
-  onCollapse = collapsed => {
+  onCollapse = (collapsed) => {
     console.log(collapsed);
     this.setState({ collapsed });
   };
 
-  handleRowClick = (record) => { this.setState({ row: record }); }
-  handleRowClass = record => (record.id === this.state.row.id ? tableStyle.selected : '');
+  handleRowClick = (record) => {
+    this.setState({ row: record });
+  };
+  handleRowClass = (record) =>
+    record.id === this.state.row.id ? tableStyle.selected : "";
 
   showModal = () => {
     this.setState({ isModalVisible: true });
@@ -119,7 +115,7 @@ class Home extends Component {
   };
 
   normFile = (e) => {
-    console.log('Upload event:', e);
+    console.log("Upload event:", e);
 
     if (Array.isArray(e)) {
       return e;
@@ -132,50 +128,41 @@ class Home extends Component {
     const { tloading, data, isModalVisible } = this.state;
     return (
       <div>
-       <Row>
-       
+        <Row>
           <Col span={24}>
-          <List
-    itemLayout="vertical"
-    size="large"
-    pagination={{
-      onChange: page => {
-        console.log(page);
-      },
-      pageSize: 3,
-    }}
-    dataSource={listData}
-    footer={
-      <div>
-        <b>ant design</b> footer part
-      </div>
-    }
-    renderItem={item => (
-      <List.Item
-        key={item.title}
-        
-        extra={
-          <img
-            width={272}
-            alt="logo"
-             src={img4}
-          />
-        }
-      >
-        <List.Item.Meta
-        
-          title={<a href={item.href}>{item.title}</a>}
-          description={item.description}
-        />
-        {item.content}
-      </List.Item>
-    )}
-  />,
+            <List
+              itemLayout="vertical"
+              size="large"
+              pagination={{
+                onChange: (page) => {
+                  console.log(page);
+                },
+                pageSize: 3,
+              }}
+              dataSource={listData}
+              footer={
+                <div>
+                  <b>ant design</b> footer part
+                </div>
+              }
+              renderItem={(item) => (
+                <List.Item
+                  key={item.title}
+                  extra={<img width={272} alt="logo" src={img4} />}
+                >
+                  <List.Item.Meta
+                    title={<a href={item.href}>{item.title}</a>}
+                    description={item.description}
+                  />
+                  {item.content}
+                </List.Item>
+              )}
+            />
+            ,
           </Col>
-    
-       </Row>
+        </Row>
       </div>
-    )
+    );
   }
 }
 

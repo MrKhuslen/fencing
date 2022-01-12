@@ -1,12 +1,12 @@
 /* eslint-disable array-callback-return */
 import React, { Component } from 'react';
 import axios from "axios"
-import { Layout, Menu, Icon, Carousel, img, message, Button, Modal, Form, Input, Upload } from 'antd';
+import { Col, Row , img} from 'antd';
 import { UserOutlined, VideoCameraOutlined, UploadOutlined, LockOutlined } from '@ant-design/icons';
 import 'antd/dist/antd.css';
 import tableStyle from './index.css';
-// import img4 from '../assets/zurag4.jpg';
-// import img5 from '../assets/zurag5.jpg';
+import img1 from '../../assets/Sabre2.svg';
+import img2 from '../../assets/Sabre1.png';
 // import img6 from '../assets/zurag6.jpg';
 
 
@@ -114,21 +114,15 @@ class Home extends Component {
     const { tloading, data, isModalVisible } = this.state;
     return (
       <div>
-       <div>
-        {/* <Carousel autoplay  >
-              <div className="contentStyle">
-              <img alt="" src={img4} />
-              </div>
-              <div  className="contentStyle">
-              <img alt="" src={img5} />
-              </div>
-              <div className="contentStyle">
-              <img alt="" src={img6} />
-              </div>
-              
-            </Carousel> */}
-
-</div>
+        <h2 style={{ textAlign: "center" }}>Илдэн сэлэм</h2>
+        <Row>
+          <Col span={16}></Col>
+          <Col span={8}><img alt="" src={img1} /></Col>
+        </Row>
+        <Row>
+          <Col span={8}><img alt="" src={img2} /></Col>
+          <Col span={16}></Col>
+        </Row>
       </div>
     )
   }

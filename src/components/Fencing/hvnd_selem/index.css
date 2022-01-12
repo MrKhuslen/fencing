@@ -14,3 +14,10 @@
 .selected{
   background-color: yellow;
 }
+.foil-text{
+  color: #000000d9;
+    overflow-wrap: break-word;
+    justify-content: center;
+    margin-bottom: 1em
+;
+}

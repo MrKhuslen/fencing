@@ -8,13 +8,11 @@ import {
   Affix,
   Col,
   Row,
-  Space,
   Divider,
   Radio,
   Drawer,
 } from "antd";
 import "antd/dist/antd.css";
-import tableStyle from "./index.css";
 import img1 from "../assets/zurag1.png";
 import img2 from "../assets/zurag2.png";
 import img3 from "../assets/zurag3.png";
@@ -46,7 +44,7 @@ for (let i = 1; i < 3; i++) {
   listFeatured.push({
     href: "https://ant.design",
     key: i,
-    text: 'УЛСЫН АВАРГА ШАЛГАРУУЛАХ ТЭМЦЭЭН',
+    text: "УЛСЫН АВАРГА ШАЛГАРУУЛАХ ТЭМЦЭЭН",
     description: "",
     content: "We supply a series of design principles.",
   });
@@ -147,17 +145,14 @@ class Home extends Component {
       },
     };
 
-    let res = await axios(options).catch((err) => { });
+    let res = await axios(options).catch((err) => {});
   };
-
 
   handleRadioChange = (e) => {
     this.setState({ radiobutton: e.target.value });
   };
 
   render() {
-    const { tloading, data, isModalVisible } = this.state;
-    const { value1, value2, value3, value4 } = this.state;
     const { nuguudrawer, handleClose } = this.props;
     return (
       <div style={{ margin: "0 16em" }}>
