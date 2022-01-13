@@ -1,7 +1,7 @@
 /* eslint-disable array-callback-return */
 import React, { Component } from "react";
 import axios from "axios";
-import { Layout, Menu, Icon, Carousel, img, Row, Col } from "antd";
+import { Layout, Menu, Icon, Carousel, Typography, Row, Col } from "antd";
 import {
   UserOutlined,
   VideoCameraOutlined,
@@ -10,9 +10,21 @@ import {
 } from "@ant-design/icons";
 import "antd/dist/antd.css";
 import tableStyle from "./index.css";
-import img1 from "../../assets/Epee2.jpeg";
+import img1 from "../../assets/Epee5.svg";
 import img2 from "../../assets/Epee1.svg";
 // import img6 from '../assets/zurag6.jpg';
+const {  Paragraph } = Typography;
+const blockContent = `
+
+
+Эртний халз тулааны зэвсэгээс үүссэн үзүүрээр хатгаж оноо авна. Өрсөлдөгчийн 
+биеийн бүх хэсэгт буюу толгойноос хөл хүртэл аль ч хэсэгт 750 гр-аас дээш 
+жингийн даралттай хатгасан  үед тооцно. Сэлэмний нийт урт нь 110 см 
+ба ирний урт нь хөнгөн сэлэмнийхтэй адил 90 см байна. Гарын хамгаалалтын 
+диаметр 13,5 см. Бариул, гарын хамгаалалт, ирний төмрийн жингээс хамаарч 
+нийт  жин 750-850 грамм байдаг.
+
+`;
 
 const formItemLayout = {
   labelCol: {
@@ -120,19 +132,36 @@ class Home extends Component {
     const { tloading, data, isModalVisible } = this.state;
     return (
       <div>
-        <h2 style={{ textAlign: "center" }}>Хүнд сэлэм</h2>
+        <h1 style={{ textAlign: "center" }}>Хүнд сэлэм</h1>
         <Row>
-          <Col span={12}></Col>
+          <Col span={12}>
+            <Paragraph
+              
+              style={{
+                display: "flex",
+                justifyContent: "center",
+                width: "1400px",
+                height: "400px",
+                margin: "left",
+                textAlign: "center",
+              }}
+            >
+              <pre style={{ textAlign: "center" }}>{blockContent} <br />
+            <center>
+              <img alt="" src={img2} style={{ width:"500px", height:"150px"}} />
+            </center></pre>
+            </Paragraph>
+          </Col>
           <Col span={12}>
             <img alt="" src={img1} />
           </Col>
         </Row>
-        <Row>
+        {/* <Row>
           <Col span={8}>
             <img alt="" src={img2} />
           </Col>
           <Col span={16}></Col>
-        </Row>
+        </Row> */}
       </div>
     );
   }

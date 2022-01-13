@@ -1,7 +1,7 @@
 /* eslint-disable array-callback-return */
 import React, { Component } from "react";
 import axios from "axios";
-import { img, Row, Col } from "antd";
+import { Typography, Row, Col } from "antd";
 import {
   UserOutlined,
   VideoCameraOutlined,
@@ -13,7 +13,18 @@ import tableStyle from "./index.css";
 import img1 from "../../assets/Foil2.svg";
 import img2 from "../../assets/Foil1.png";
 // import img6 from '../assets/zurag6.jpg';
+const { Title, Paragraph} = Typography;
+const blockContent = `
 
+  Зөвхөн сэлэмний үзүүрийн товчлуураар 
+өрсөлдөгчийн их биед 500гр-аас дээш жингийн 
+даралтаар хатгаж оноо авна.Хязгаарлагдсан оноо 
+авах талбайтай. Өрсөлдөгчийн зөвхөн их биед хатгахад 
+тооцох ба гар, хөл мөн толгой уруу хатгахад тооцохгүй. 
+Хөнгөн сэлэмний урт нь 110 см ба гарын хамгаалалтаас 
+үзүүрээс хүртэлх ирний урт 90 см, 500-650 грамм жинтэй. 
+ Харин гарын хамгаалалтын диаметр 10-12 см байна. 
+ `;
 const formItemLayout = {
   labelCol: {
     span: 6,
@@ -120,21 +131,23 @@ class Home extends Component {
     const { tloading, data, isModalVisible } = this.state;
     return (
       <div>
-        <h2 style={{ textAlign: "center" }}>Хөнгөн сэлэм</h2>
+        <h1 style={{ textAlign: "center" }}>Хөнгөн сэлэм</h1>
         <Row>
           <Col span={12}>
-          {/* <div className="foil-text">
-          <pre>
-              Эртний халз тулааны зэвсэгээс үүссэн үзүүрээр хатгаж оноо авна.
-              Өрсөлдөгчийн биеийн бүх хэсэгт буюу толгойноос хөл хүртэл аль ч
-              хэсэгт 750 гр-аас дээш жингийн даралттай хатгасан үед тооцно.
-              Сэлэмний нийт урт нь 110 см ба ирний урт нь хөнгөн сэлэмнийхтэй
-              адил 90 см байна. Гарын хамгаалалтын диаметр 13,5 см. Бариул,
-              гарын хамгаалалт, ирний төмрийн жингээс хамаарч нийт жин 750-850
-              грамм байдаг.
-            </pre>
-          </div> */}
-            
+            <Paragraph
+              style={{ textAlign: "center" }}
+              style={{
+                display: "flex",
+                    justifyContent: "center",
+                    width: "1400px",
+                height: "400px",
+                
+                  }}>
+              <pre style={{ textAlign: "center" }}>{blockContent} <br />
+            <center>
+              <img alt="" src={img2} style={{ width:"500px", height:"150px"}} /><br/>
+            </center></pre>
+            </Paragraph>
           </Col>
           <Col span={12}>
             <img alt="" src={img1} />

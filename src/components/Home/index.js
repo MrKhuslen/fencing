@@ -64,11 +64,7 @@ class Home extends Component {
           mode="horizontal"
           style={{ textAlign: "center" }}
         >
-          <Menu.Item
-            key="0"
-            icon={<MenuUnfoldOutlined />}
-            onClick={this.handleDrawer}
-          />
+         
           <Menu.Item key="1" icon={<HomeOutlined />}>
             {"Нүүр хуудас"}
           </Menu.Item>

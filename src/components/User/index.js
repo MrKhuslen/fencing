@@ -113,12 +113,12 @@ class Home extends Component {
 
   componentWillMount() {
     document.querySelector("title").innerHTML = "Бүртгэл";
-    // this.refreshList();
+    this.refreshList();
   }
 
   refreshList = async () => {
     this.setState({ tloading: false });
-    let result = await fetch("http://10.0.10.11:8881/api/category", {
+    let result = await fetch("http://10.0.10.22:8881/api/news", {
       method: "GET",
     });
     result = await result.json();

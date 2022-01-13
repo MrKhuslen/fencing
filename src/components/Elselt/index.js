@@ -125,7 +125,67 @@ class Home extends Component {
 
   render() {
     const { tloading, data, isModalVisible } = this.state;
-    return <div></div>;
+    return <div>
+     
+  <Form
+    name="wrap"
+    labelCol={{
+      flex: '200px',
+      
+
+    }}
+    labelAlign=" right"
+    labelWrap
+    wrapperCol={{
+      flex: 1,
+    }}
+    colon={false}
+  >
+    <Form.Item
+      label="Овог"
+      name="Овогоо оруулна уу"
+      rules={[
+        {
+          required: true,
+        },
+      ]}
+    >
+      <Input />
+    </Form.Item>
+
+    <Form.Item
+      label="Нэр"
+      name="Нэрээ оруулна уу"
+      rules={[
+        {
+          required: true,
+        },
+      ]}
+    >
+      <Input />
+    </Form.Item>
+
+    <Form.Item
+        name={['user', 'age']}
+        label="Age"
+        rules={[
+          {
+            required: true,
+            type: 'number',
+            min: 0,
+            max: 99,
+          },
+        ]}
+      >
+        
+      </Form.Item>
+    <Form.Item label=" ">
+      <Button type="primary" htmlType="submit">
+        Submit
+      </Button>
+    </Form.Item>
+  </Form>
+    </div>;
   }
 }
 
