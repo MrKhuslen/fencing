@@ -1,41 +1,11 @@
-/* eslint-disable array-callback-return */
 import React, { Component } from "react";
-import axios from "axios";
-import {
-  Layout,
-  Menu,
-  Icon,
-  Carousel,
-  img,
-  Row,
-  Col,
-  Modal,
-  Form,
-  Input,
-  Upload,
-} from "antd";
-import {
-  UserOutlined,
-  VideoCameraOutlined,
-  UploadOutlined,
-  LockOutlined,
-} from "@ant-design/icons";
-import "antd/dist/antd.css";
+import { Carousel } from "antd";
 import tableStyle from "./index.css";
 import img4 from "../../assets/card1.jpeg";
 import img5 from "../../assets/card2.jpeg";
 import img6 from "../../assets/card3.jpeg";
 import img7 from "../../assets/em1.jpeg";
 import img8 from "../../assets/em2.jpeg";
-
-const formItemLayout = {
-  labelCol: {
-    span: 6,
-  },
-  wrapperCol: {
-    span: 14,
-  },
-};
 
 class Home extends Component {
   constructor(props) {
@@ -52,7 +22,7 @@ class Home extends Component {
   }
 
   componentWillMount() {
-    document.querySelector("title").innerHTML = "Бүртгэл";
+    document.querySelector("title").innerHTML = "Эмэгтэй чансаа";
     // this.refreshList();
   }
 
@@ -131,51 +101,43 @@ class Home extends Component {
   };
 
   render() {
-    const { tloading, data, isModalVisible } = this.state;
     return (
       <div>
         <center>
           <div>
-            
-              <Carousel autoplay>
-              <div className="contentStyle1">
+            <Carousel autoplay>
+              <div>
                 <img
                   alt=""
                   src={img4}
                   style={{
-                    display: "flex",
-                    justifyContent: "center",
                     width: "1000px",
                     height: "650px",
                   }}
                 />
               </div>
-              <div className="contentStyle1">
+              <div>
                 <img
                   alt=""
                   src={img5}
                   style={{
-                    display: "flex",
-                    justifyContent: "center",
                     width: "1000px",
                     height: "650px",
                   }}
                 />
               </div>
-              <div className="contentStyle1">
+              <div>
                 <img
                   alt=""
                   src={img6}
                   style={{
-                    display: "flex",
-                    justifyContent: "center",
                     width: "1000px",
                     height: "650px",
                   }}
                 />
               </div>
             </Carousel>
-              
+
             <div className="chan">
               <img alt="" src={img7} />
               <br />

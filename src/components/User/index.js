@@ -1,4 +1,3 @@
-/* eslint-disable array-callback-return */
 import React, { Component } from "react";
 import axios from "axios";
 import {
@@ -27,7 +26,7 @@ const options = [
   { label: "RECENT", value: 3 },
 ];
 const listData = [];
-for (let i = 0; i < 13; i++) {
+for (let i = 0; i < 6; i++) {
   <Divider />;
   listData.push({
     href: "https://ant.design",
@@ -112,7 +111,7 @@ class Home extends Component {
   }
 
   componentWillMount() {
-    document.querySelector("title").innerHTML = "Бүртгэл";
+    document.querySelector("title").innerHTML = "Нүүр хуудас";
     this.refreshList();
   }
 
@@ -139,7 +138,7 @@ class Home extends Component {
     const options = {
       method: "POST",
       data: test,
-      url: `http://10.0.10.11:8881/api/addcategory`,
+      url: `http://10.0.10.22:8881/api/addcategory`,
       headers: {
         "Content-Type": "application/json",
       },
@@ -196,7 +195,7 @@ class Home extends Component {
                   onChange: (page) => {
                     console.log(page);
                   },
-                  pageSize: 7,
+                  pageSize: 4,
                 }}
                 renderItem={(item) => (
                   <List.Item
@@ -293,7 +292,7 @@ class Home extends Component {
         </div>
         <Divider />
         <div>
-          <h2>Features and Guides</h2>
+          <h2>Нэмэлт мэдээ</h2>
           <Row>
             <Col span={12}>
               <List
@@ -314,7 +313,6 @@ class Home extends Component {
                   </List.Item>
                 )}
               />
-              ,
             </Col>
 
             <Col span={12}>
@@ -336,21 +334,11 @@ class Home extends Component {
                   </List.Item>
                 )}
               />
-              ,
+              
             </Col>
           </Row>
         </div>
-        <Drawer
-          title={`Drawer`}
-          placement="right"
-          size={720}
-          onClose={handleClose}
-          visible={nuguudrawer && this.props.ishome}
-        >
-          <p>Some contents...</p>
-          <p>Some contents...</p>
-          <p>Some contents...</p>
-        </Drawer>
+        
       </div>
     );
   }

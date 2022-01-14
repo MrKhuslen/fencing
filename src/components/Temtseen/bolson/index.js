@@ -1,35 +1,20 @@
 import React, { Component } from "react";
-import {
-  List,
-  Space,
-  Row,
-  Col
-} from "antd";
+import { List, Row, Col } from "antd";
 import "antd/dist/antd.css";
 import tableStyle from "./index.css";
 import img4 from "../../assets/zurag11.jpg";
 
 const listData = [];
-for (let i = 0; i < 9; i++) {
+for (let i = 0; i < 5; i++) {
   listData.push({
     href: "https://ant.design",
-    title: `Багачуудын УАШТ ${i}`,
+    title: `Өвлийн сорил тэмцээн ${i}`,
     avatar: "https://joeschmoe.io/api/v1/random",
     description: "",
     content:
       "We supply a series of design principles, practical patterns and high quality design resources (Sketch and Axure), to help people create their product prototypes beautifully and efficiently.",
   });
 }
-
-
-const formItemLayout = {
-  labelCol: {
-    span: 6,
-  },
-  wrapperCol: {
-    span: 14,
-  },
-};
 
 class Home extends Component {
   constructor(props) {
@@ -46,7 +31,7 @@ class Home extends Component {
   }
 
   componentWillMount() {
-    document.querySelector("title").innerHTML = "Бүртгэл";
+    document.querySelector("title").innerHTML = "Болж өнгөрсөн тэмцээн";
     // this.refreshList();
   }
 
@@ -125,11 +110,11 @@ class Home extends Component {
   };
 
   render() {
-    const { tloading, data, isModalVisible } = this.state;
     return (
       <div>
         <Row>
-          <Col span={24}>
+        <Col span={5}/>
+          <Col span={14}>
             <List
               itemLayout="vertical"
               size="large"
@@ -140,11 +125,6 @@ class Home extends Component {
                 pageSize: 3,
               }}
               dataSource={listData}
-              footer={
-                <div>
-                  <b>ant design</b> footer part
-                </div>
-              }
               renderItem={(item) => (
                 <List.Item
                   key={item.title}
@@ -158,8 +138,8 @@ class Home extends Component {
                 </List.Item>
               )}
             />
-            ,
           </Col>
+          <Col span={5}/>
         </Row>
       </div>
     );

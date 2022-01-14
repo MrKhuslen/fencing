@@ -1,19 +1,10 @@
-/* eslint-disable array-callback-return */
 import React, { Component } from "react";
-import axios from "axios";
-import { Layout, Menu, Icon, Carousel, Typography, Row, Col } from "antd";
-import {
-  UserOutlined,
-  VideoCameraOutlined,
-  UploadOutlined,
-  LockOutlined,
-} from "@ant-design/icons";
+import { Typography, Row, Col } from "antd";
 import "antd/dist/antd.css";
 import tableStyle from "./index.css";
 import img1 from "../../assets/Epee5.svg";
 import img2 from "../../assets/Epee1.svg";
-// import img6 from '../assets/zurag6.jpg';
-const {  Paragraph } = Typography;
+const { Paragraph } = Typography;
 const blockContent = `
 
 
@@ -25,16 +16,6 @@ const blockContent = `
 нийт  жин 750-850 грамм байдаг.
 
 `;
-
-const formItemLayout = {
-  labelCol: {
-    span: 6,
-  },
-  wrapperCol: {
-    span: 14,
-  },
-};
-
 class Home extends Component {
   constructor(props) {
     super(props);
@@ -50,7 +31,7 @@ class Home extends Component {
   }
 
   componentWillMount() {
-    document.querySelector("title").innerHTML = "Бүртгэл";
+    document.querySelector("title").innerHTML = "Хүнд сэлэм";
     // this.refreshList();
   }
 
@@ -129,14 +110,12 @@ class Home extends Component {
   };
 
   render() {
-    const { tloading, data, isModalVisible } = this.state;
     return (
       <div>
         <h1 style={{ textAlign: "center" }}>Хүнд сэлэм</h1>
         <Row>
           <Col span={12}>
             <Paragraph
-              
               style={{
                 display: "flex",
                 justifyContent: "center",
@@ -146,22 +125,22 @@ class Home extends Component {
                 textAlign: "center",
               }}
             >
-              <pre style={{ textAlign: "center" }}>{blockContent} <br />
-            <center>
-              <img alt="" src={img2} style={{ width:"500px", height:"150px"}} />
-            </center></pre>
+              <pre style={{ textAlign: "center" }}>
+                {blockContent} <br />
+                <center>
+                  <img
+                    alt=""
+                    src={img2}
+                    style={{ width: "500px", height: "150px" }}
+                  />
+                </center>
+              </pre>
             </Paragraph>
           </Col>
           <Col span={12}>
             <img alt="" src={img1} />
           </Col>
         </Row>
-        {/* <Row>
-          <Col span={8}>
-            <img alt="" src={img2} />
-          </Col>
-          <Col span={16}></Col>
-        </Row> */}
       </div>
     );
   }

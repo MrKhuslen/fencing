@@ -1,23 +1,7 @@
-/* eslint-disable array-callback-return */
-import React, { Component } from 'react';
-import axios from "axios"
-import { Layout, Menu, Icon, Carousel, img, message, Button, Modal, Form, Input, Upload } from 'antd';
-import { UserOutlined, VideoCameraOutlined, UploadOutlined, LockOutlined } from '@ant-design/icons';
-import 'antd/dist/antd.css';
-import tableStyle from './index.css';
-import img4 from '../assets/zurag4.jpg';
-import img5 from '../assets/zurag5.jpg';
-import img6 from '../assets/zurag6.jpg';
+import React, { Component } from "react";
+import "antd/dist/antd.css";
+import tableStyle from "./index.css";
 
-
-const formItemLayout = {
-  labelCol: {
-    span: 6,
-  },
-  wrapperCol: {
-    span: 14,
-  },
-};
 
 class Home extends Component {
   constructor(props) {
@@ -34,7 +18,7 @@ class Home extends Component {
   }
 
   componentWillMount() {
-    document.querySelector("title").innerHTML = "Бүртгэл";
+    document.querySelector("title").innerHTML = "Болж өнгөрсөн тэмцээн";
     // this.refreshList();
   }
 
@@ -59,7 +43,6 @@ class Home extends Component {
   //   test.append("json", JSON.stringify(values))
   //   console.log(values)
 
-
   //   const options = {
   //     method: "POST",
   //     data: test,
@@ -73,13 +56,16 @@ class Home extends Component {
   //   });
   // };
 
-  onCollapse = collapsed => {
+  onCollapse = (collapsed) => {
     console.log(collapsed);
     this.setState({ collapsed });
   };
 
-  handleRowClick = (record) => { this.setState({ row: record }); }
-  handleRowClass = record => (record.id === this.state.row.id ? tableStyle.selected : '');
+  handleRowClick = (record) => {
+    this.setState({ row: record });
+  };
+  handleRowClass = (record) =>
+    record.id === this.state.row.id ? tableStyle.selected : "";
 
   showModal = () => {
     this.setState({ isModalVisible: true });
@@ -101,7 +87,7 @@ class Home extends Component {
   };
 
   normFile = (e) => {
-    console.log('Upload event:', e);
+    console.log("Upload event:", e);
 
     if (Array.isArray(e)) {
       return e;
@@ -111,26 +97,12 @@ class Home extends Component {
   };
 
   render() {
-    const { tloading, data, isModalVisible } = this.state;
     return (
       <div>
-       <div>
-        <Carousel autoplay  >
-              <div className="contentStyle">
-              <img alt="" src={img4} />
-              </div>
-              <div  className="contentStyle">
-              <img alt="" src={img5} />
-              </div>
-              <div className="contentStyle">
-              <img alt="" src={img6} />
-              </div>
-              
-            </Carousel>
-
-</div>
+        
+        
       </div>
-    )
+    );
   }
 }
 

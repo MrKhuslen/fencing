@@ -1,4 +1,3 @@
-/* eslint-disable array-callback-return */
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from "redux";

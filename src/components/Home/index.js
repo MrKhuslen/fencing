@@ -1,4 +1,3 @@
-/* eslint-disable array-callback-return */
 import React, { Component } from "react";
 import { Layout, Menu } from "antd";
 import {
@@ -9,7 +8,6 @@ import {
   TrophyOutlined,
   InstagramOutlined,
   TeamOutlined,
-  MenuUnfoldOutlined,
 } from "@ant-design/icons";
 import Temtseen from "../Temtseen/index.js";
 import User from "../User/index";
@@ -52,7 +50,6 @@ class Home extends Component {
     this.setState({ isdrawer: !this.state.isdrawer, ishome: true });
   };
   render() {
-    const { collapsed } = this.state;
     return (
       <Layout>
         <div className="homelogo">DUEL FENCING CLUB</div>
@@ -64,7 +61,6 @@ class Home extends Component {
           mode="horizontal"
           style={{ textAlign: "center" }}
         >
-         
           <Menu.Item key="1" icon={<HomeOutlined />}>
             {"Нүүр хуудас"}
           </Menu.Item>
@@ -74,8 +70,8 @@ class Home extends Component {
             title={<span>Тэмцээний мэдээлэл </span>}
           >
             <Menu.ItemGroup title="">
-              <Menu.Item key="6">Болж өнгөрсөн</Menu.Item>
-              <Menu.Item key="7">Удахгүй болох</Menu.Item>
+              <Menu.Item key="6">Удахгүй болох</Menu.Item>
+              <Menu.Item key="7">Болж өнгөрсөн</Menu.Item>
             </Menu.ItemGroup>
           </SubMenu>
 
@@ -126,8 +122,8 @@ class Home extends Component {
             {this.state.key === "3" && <Chansaa />}
             {this.state.key === "4" && <Fencing />}
             {this.state.key === "5" && <Elselt />}
-            {this.state.key === "6" && <Bolson />}
-            {this.state.key === "7" && <Boloh />}
+            {this.state.key === "6" && <Boloh />}
+            {this.state.key === "7" && <Bolson />}
             {this.state.key === "8" && <Eregtei />}
             {this.state.key === "9" && <Emegtei />}
             {this.state.key === "10" && <Hungun />}

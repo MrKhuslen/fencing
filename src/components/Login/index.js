@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
-import { browserHistory } from 'react-router-dom';
 import { Form, Button, Input, message } from 'antd';
 import { UserOutlined, LockOutlined } from '@ant-design/icons';
-import team from '../../team.png';
 import './index.css';
 
 class Login extends Component {
@@ -56,7 +54,7 @@ class Login extends Component {
   render() {
     return (
       <div>
-        <img src={team} style={{ display: "block", margin: "50px auto 50px auto", textAlign: "center" }} alt="logo"></img>
+        
         <Form
           name="normal_login"
           className="login-form"
@@ -101,7 +99,6 @@ class Login extends Component {
             <Button type="primary" htmlType="submit" className="login-form-button">
               Log in
             </Button>
-            {/* Or <a href="">register now!</a> */}
           </Form.Item>
         </Form>
 

@@ -1,20 +1,10 @@
-/* eslint-disable array-callback-return */
 import React, { Component } from "react";
-import axios from "axios";
 import { Col, Row, Typography } from "antd";
-import {
-  UserOutlined,
-  VideoCameraOutlined,
-  UploadOutlined,
-  LockOutlined,
-} from "@ant-design/icons";
-
 import "antd/dist/antd.css";
 import tableStyle from "./index.css";
 import img1 from "../../assets/Sabre2.svg";
 import img2 from "../../assets/Sabre1.png";
-// import img6 from '../assets/zurag6.jpg';
-const { Title, Paragraph, Text, Link } = Typography;
+const { Paragraph } = Typography;
 const blockContent = `
 
 
@@ -24,15 +14,6 @@ const blockContent = `
  
 
  `;
-
-const formItemLayout = {
-  labelCol: {
-    span: 6,
-  },
-  wrapperCol: {
-    span: 14,
-  },
-};
 
 class Home extends Component {
   constructor(props) {
@@ -49,7 +30,7 @@ class Home extends Component {
   }
 
   componentWillMount() {
-    document.querySelector("title").innerHTML = "Бүртгэл";
+    document.querySelector("title").innerHTML = "Илд сэлэм";
     // this.refreshList();
   }
 
@@ -128,39 +109,36 @@ class Home extends Component {
   };
 
   render() {
-    const { tloading, data, isModalVisible } = this.state;
     return (
       <div>
         <h1 style={{ textAlign: "center" }}>Илдэн сэлэм</h1>
         <Row>
           <Col span={16}>
             <Paragraph
-              
               style={{
                 display: "flex",
                 justifyContent: "center",
                 width: "1400px",
                 height: "400px",
-                
               }}
             >
-              <pre style={{ textAlign: "center" }}>{blockContent}
-              <br />
-            <center>
-              <img alt="" src={img2} style={{ width:"500px", height:"150px"}}/>
-            </center></pre>
-               
+              <pre style={{ textAlign: "center" }}>
+                {blockContent}
+                <br />
+                <center>
+                  <img
+                    alt=""
+                    src={img2}
+                    style={{ width: "500px", height: "150px" }}
+                  />
+                </center>
+              </pre>
             </Paragraph>
-           
           </Col>
           <Col span={8}>
             <img alt="" src={img1} />
           </Col>
         </Row>
-        {/* <Row>
-          <Col span={8}><img alt="" src={img2} /></Col>
-          <Col span={16}></Col>
-        </Row> */}
       </div>
     );
   }
