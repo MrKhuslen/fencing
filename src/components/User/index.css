@@ -3,12 +3,16 @@
   margin: 16px;
   background: rgba(255, 255, 255, 0.3);
 }
-
-.site-layout .site-layout-background {
-  background: #fff;
+.site-layout{
+  /* background-image: url(../assets/baga2.jpeg); */
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  
+  
 }
+
   [data-theme="dark"] .site-layout .site-layout-background {
-    background: #141414;
+    background: #0000;
   }
 
   .selected{
@@ -17,6 +21,6 @@
   .contentStyle {
     color: '#fff';
     text-align: 'center';
-    background: '#364d79';
+    background: #0000;
   }
   

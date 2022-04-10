@@ -1,17 +1,28 @@
-.homeBackground {
-  /* background-image: url(../assets/card3.jpeg); */
-}
+
 .homelogo {
-  height: 50px;
-  background-color: black;
-  color: green;
-  font-size: larger;
+  height: 60px;
+  background-color: #0000;
+  color: #E67E22;
+  font-size: x-large;
   font-weight: bolder;
   text-align: center;
   padding: 15px 0 0 0;
   letter-spacing: 5px;
-}
 
+}
+.site-layout{
+  /* background-image: url(../assets/blur12.jpeg); */
+  /* background-repeat: no-repeat; */
+  background-attachment: fixed;
+  /* background-color: #43457a; */
+  background-color:#0000;
+  -webkit-font-smoothing: antialiased;
+  
+  
+}
+.menu{
+  font-size: 15px;
+}
 .site-layout .site-layout-background {
   align-items: center;
   background: #fff;

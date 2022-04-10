@@ -8,5 +8,9 @@
   background: #fff;
 }
   [data-theme="dark"] .site-layout .site-layout-background {
-    background: #fff;
+    background: #141414;
   }
+
+.selected{
+  background-color: yellow;
+}

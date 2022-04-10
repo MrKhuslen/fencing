@@ -1,8 +1,7 @@
 import React, { Component } from "react";
-import { List, Row, Col } from "antd";
+import { List, Row, Col, message, Card } from "antd";
 import "antd/dist/antd.css";
-import tableStyle from "./index.css";
-import img4 from "../../assets/zurag11.jpg";
+// import img4 from "../../assets/zurag11.jpg";
 
 const listData = [];
 for (let i = 0; i < 5; i++) {
@@ -20,19 +19,17 @@ class Home extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      collapsed: false,
       tloading: false,
       data: [],
       row: [],
       isModalVisible: false,
-      setIsModalVisible: false,
       file: [],
     };
   }
 
   componentWillMount() {
     document.querySelector("title").innerHTML = "Болж өнгөрсөн тэмцээн";
-    // this.refreshList();
+    this.refreshList();
   }
 
   // refreshList = async () => {
@@ -56,90 +53,53 @@ class Home extends Component {
   //   test.append("json", JSON.stringify(values))
   //   console.log(values)
 
-  //   const options = {
-  //     method: "POST",
-  //     data: test,
-  //     url: `http://10.0.10.11:8881/api/addcategory`,
-  //     headers: {
-  //       "Content-Type": "application/json",
-  //     },
-  //   };
-
-  //   let res = await axios(options).catch((err) => {
-  //   });
-  // };
-
-  onCollapse = (collapsed) => {
-    console.log(collapsed);
-    this.setState({ collapsed });
-  };
-
-  handleRowClick = (record) => {
-    this.setState({ row: record });
-  };
-  handleRowClass = (record) =>
-    record.id === this.state.row.id ? tableStyle.selected : "";
-
-  showModal = () => {
-    this.setState({ isModalVisible: true });
-  };
-
-  handleOk = () => {
-    this.setState({ isModalVisible: false });
-  };
-
-  handleCancel = () => {
-    this.setState({ isModalVisible: false });
-  };
-
-  handleChangeImg = ({ fileList }) => {
-    if (this.state.size) {
-      this.setState({ file: fileList });
-      this.props.form.setFieldsValue({ file: fileList });
+  refreshList = async () => {
+    this.setState({ tloading: true });
+    let result = await fetch("http://192.168.1.61:8881/api/news", {
+      method: "GET",
+    });
+    result = await result.json();
+    if (result.success === true) {
+      this.setState({ tloading: false, data: result.data.slice(0, 6) });
+    } else {
+      message.error(result.data);
     }
-  };
-
-  normFile = (e) => {
-    console.log("Upload event:", e);
-
-    if (Array.isArray(e)) {
-      return e;
-    }
-
-    return e && e.fileList;
   };
 
   render() {
     return (
       <div>
         <Row>
-        <Col span={5}/>
+          <Col span={5} />
+
           <Col span={14}>
-            <List
-              itemLayout="vertical"
-              size="large"
-              pagination={{
-                onChange: (page) => {
-                  console.log(page);
-                },
-                pageSize: 3,
-              }}
-              dataSource={listData}
-              renderItem={(item) => (
-                <List.Item
-                  key={item.title}
-                  extra={<img width={272} alt="logo" src={img4} />}
-                >
-                  <List.Item.Meta
-                    title={<a href={item.href}>{item.title}</a>}
-                    description={item.description}
-                  />
-                  {item.content}
-                </List.Item>
-              )}
-            />
+            <Card>
+              <List
+                itemLayout="vertical"
+                size="large"
+                pagination={{
+                  onChange: (page) => {
+                    console.log(page);
+                  },
+                  pageSize: 6,
+                }}
+                dataSource={this.state.data}
+                renderItem={(item) => (
+                  <List.Item
+                    key={item.title}
+                    extra={<img width={272} alt="logo" src={item.image} />}
+                  >
+                    <List.Item.Meta
+                      title={item.title}
+                      description={item.featuretxt}
+                    />
+                  </List.Item>
+                )}
+              />
+            </Card>
           </Col>
-          <Col span={5}/>
+
+          <Col span={5} />
         </Row>
       </div>
     );

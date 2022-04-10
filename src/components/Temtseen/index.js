@@ -24,17 +24,16 @@ class Home extends Component {
 
   // refreshList = async () => {
   //   this.setState({ tloading: true });
-  //   let result = await fetch("http://10.0.10.11:8881/api/category", {
+  //   let result = await fetch("http://10.0.10.22:8881/api/news", {
   //     method: "GET",
-  //   })
+  //   });
   //   result = await result.json();
   //   if (result.success === true) {
-  //     this.setState({ tloading: false, data: result.data });
+  //     this.setState({ tloading: false, data: result.data.slice(5, 23) })
   //   } else {
-  //     message.error(result.data)
+  //     message.error(result.data);
   //   }
-  // }
-
+  // };
   // onFinish = async (values) => {
 
   //   let test = new FormData();

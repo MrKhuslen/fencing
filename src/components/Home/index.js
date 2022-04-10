@@ -1,14 +1,5 @@
 import React, { Component } from "react";
-import { Layout, Menu } from "antd";
-import {
-  UserOutlined,
-  FacebookOutlined,
-  UploadOutlined,
-  HomeOutlined,
-  TrophyOutlined,
-  InstagramOutlined,
-  TeamOutlined,
-} from "@ant-design/icons";
+import { Layout, Menu, Icon } from "antd";
 import Temtseen from "../Temtseen/index.js";
 import User from "../User/index";
 import Chansaa from "../Chansaa/index";
@@ -23,6 +14,7 @@ import Emegtei from "../Chansaa/emegtei/index";
 import Hungun from "../Fencing/hungun_selem/index";
 import Hvnd from "../Fencing/hvnd_selem";
 import Ild from "../Fencing/ild_selem";
+import Bidnii from "../BidniiTuhai/index";
 
 const { Content, Footer } = Layout;
 
@@ -61,13 +53,18 @@ class Home extends Component {
           mode="horizontal"
           style={{ textAlign: "center" }}
         >
-          <Menu.Item key="1" icon={<HomeOutlined />}>
+          <Menu.Item key="1">
+            <Icon type="home" />
             {"Нүүр хуудас"}
           </Menu.Item>
           <SubMenu
             key="2"
-            icon={<TrophyOutlined />}
-            title={<span>Тэмцээний мэдээлэл </span>}
+            title={
+              <span>
+                <Icon type="trophy" />
+                Тэмцээний мэдээлэл{" "}
+              </span>
+            }
           >
             <Menu.ItemGroup title="">
               <Menu.Item key="6">Удахгүй болох</Menu.Item>
@@ -77,8 +74,12 @@ class Home extends Component {
 
           <SubMenu
             key="3"
-            icon={<TeamOutlined />}
-            title={<span> Чансаа </span>}
+            title={
+              <span>
+                 <Icon type="orderedlist" />
+                Чансаа{" "}
+              </span>
+            }
           >
             <Menu.ItemGroup title="">
               <Menu.Item key="8">Эрэгтэй</Menu.Item>
@@ -88,20 +89,31 @@ class Home extends Component {
 
           <SubMenu
             key="4"
-            icon={<UserOutlined />}
-            title={<span>Туялзуур сэлэм </span>}
+            title={
+              <span>
+                <Icon type="user" />
+                Туялзуур сэлэм{" "}
+              </span>
+            }
           >
             <Menu.Item key="10">Хөнгөн сэлэм</Menu.Item>
             <Menu.Item key="11">Хүнд сэлэм</Menu.Item>
             <Menu.Item key="12">Илдэн сэлэм</Menu.Item>
           </SubMenu>
-          <Menu.Item key="5" icon={<UploadOutlined />}>
+          <Menu.Item key="5">
+            <Icon type="upload" />
             {"Бүртгүүлэх"}
           </Menu.Item>
-          <Menu.Item icon={<FacebookOutlined />}>
-            <a href="https://www.facebook.com/DUELfencingclub"></a>
+          <Menu.Item key="13">
+            <Icon type="team" />
+            {"Бидний тухай"}
           </Menu.Item>
-          <Menu.Item icon={<InstagramOutlined />}>
+          <Menu.Item>
+            <Icon type="facebook" />
+            <a href="https://www.facebook.com/DUELfencingclub" />
+          </Menu.Item>
+          <Menu.Item>
+            <Icon type="instagram" />
             <a href="https://www.instagram.com/duelfencing.club/"></a>
           </Menu.Item>
         </Menu>
@@ -129,6 +141,7 @@ class Home extends Component {
             {this.state.key === "10" && <Hungun />}
             {this.state.key === "11" && <Hvnd />}
             {this.state.key === "12" && <Ild />}
+            {this.state.key === "13" && <Bidnii />}
           </Content>
           <Footer style={{ textAlign: "center" }}>
             {" Ant Design Layout example ©2022 Created by  DataCare"}

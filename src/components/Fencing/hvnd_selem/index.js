@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { Typography, Row, Col } from "antd";
 import "antd/dist/antd.css";
-import tableStyle from "./index.css";
 import img1 from "../../assets/Epee5.svg";
 import img2 from "../../assets/Epee1.svg";
 const { Paragraph } = Typography;
@@ -20,12 +19,9 @@ class Home extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      collapsed: false,
       tloading: false,
       data: [],
       row: [],
-      isModalVisible: false,
-      setIsModalVisible: false,
       file: [],
     };
   }
@@ -68,63 +64,13 @@ class Home extends Component {
   //   let res = await axios(options).catch((err) => {
   //   });
   // };
-
-  onCollapse = (collapsed) => {
-    console.log(collapsed);
-    this.setState({ collapsed });
-  };
-
-  handleRowClick = (record) => {
-    this.setState({ row: record });
-  };
-  handleRowClass = (record) =>
-    record.id === this.state.row.id ? tableStyle.selected : "";
-
-  showModal = () => {
-    this.setState({ isModalVisible: true });
-  };
-
-  handleOk = () => {
-    this.setState({ isModalVisible: false });
-  };
-
-  handleCancel = () => {
-    this.setState({ isModalVisible: false });
-  };
-
-  handleChangeImg = ({ fileList }) => {
-    if (this.state.size) {
-      this.setState({ file: fileList });
-      this.props.form.setFieldsValue({ file: fileList });
-    }
-  };
-
-  normFile = (e) => {
-    console.log("Upload event:", e);
-
-    if (Array.isArray(e)) {
-      return e;
-    }
-
-    return e && e.fileList;
-  };
-
   render() {
     return (
       <div>
         <h1 style={{ textAlign: "center" }}>Хүнд сэлэм</h1>
         <Row>
           <Col span={12}>
-            <Paragraph
-              style={{
-                display: "flex",
-                justifyContent: "center",
-                width: "1400px",
-                height: "400px",
-                margin: "left",
-                textAlign: "center",
-              }}
-            >
+            <Paragraph>
               <pre style={{ textAlign: "center" }}>
                 {blockContent} <br />
                 <center>

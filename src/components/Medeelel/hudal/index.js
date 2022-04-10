@@ -1,20 +1,21 @@
 import React, { Component } from "react";
-import { Col, Row, Typography } from "antd";
+import { Typography, Row, Col } from "antd";
 import "antd/dist/antd.css";
 import tableStyle from "./index.css";
-import img1 from "../../assets/Sabre2.svg";
-import img2 from "../../assets/Sabre1.png";
+import img1 from "../../assets/Epee5.svg";
+import img2 from "../../assets/Epee1.svg";
 const { Paragraph } = Typography;
 const blockContent = `
 
 
-  Илд сэлэм нь хөнгөн,  уян хатан бөгөөд цавчих,хатгах хэлбэрээр оноо авна.
-  Хөлнөөс дээш их биеийн бүх хэсэгт сэлэмний аль ч хэсгээр хүрч оноо авах 
-  боломжтой. Сэлэмний нийт урт  105 см, ирний урт 88 см байна.
- 
+Эртний халз тулааны зэвсэгээс үүссэн үзүүрээр хатгаж оноо авна. Өрсөлдөгчийн 
+биеийн бүх хэсэгт буюу толгойноос хөл хүртэл аль ч хэсэгт 750 гр-аас дээш 
+жингийн даралттай хатгасан  үед тооцно. Сэлэмний нийт урт нь 110 см 
+ба ирний урт нь хөнгөн сэлэмнийхтэй адил 90 см байна. Гарын хамгаалалтын 
+диаметр 13,5 см. Бариул, гарын хамгаалалт, ирний төмрийн жингээс хамаарч 
+нийт  жин 750-850 грамм байдаг.
 
- `;
-
+`;
 class Home extends Component {
   constructor(props) {
     super(props);
@@ -30,7 +31,7 @@ class Home extends Component {
   }
 
   componentWillMount() {
-    document.querySelector("title").innerHTML = "Илд сэлэм";
+    document.querySelector("title").innerHTML = "Хүнд сэлэм";
     // this.refreshList();
   }
 
@@ -111,7 +112,7 @@ class Home extends Component {
   render() {
     return (
       <div>
-        <h1 style={{ textAlign: "center" }}>Илд сэлэм</h1>
+        <h1 style={{ textAlign: "center" }}>Хүнд сэлэм</h1>
         <Row>
           <Col span={12}>
             <Paragraph
@@ -120,11 +121,12 @@ class Home extends Component {
             //   justifyContent: "center",
             //   width: "1400px",
             //   height: "400px",
+            //   margin: "left",
+            //   textAlign: "center",
             // }}
             >
               <pre style={{ textAlign: "center" }}>
-                {blockContent}
-                <br />
+                {blockContent} <br />
                 <center>
                   <img
                     alt=""
@@ -135,7 +137,7 @@ class Home extends Component {
               </pre>
             </Paragraph>
           </Col>
-          <Col span={8} offset={4}>
+          <Col span={12}>
             <img alt="" src={img1} />
           </Col>
         </Row>
@@ -143,5 +145,4 @@ class Home extends Component {
     );
   }
 }
-
 export default Home;
