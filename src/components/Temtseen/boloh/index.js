@@ -31,10 +31,10 @@ class Home extends Component {
 
   componentWillMount() {
     document.querySelector("title").innerHTML = "Удахгүй болох тэмцээн";
-    this.refreshList();
+    // this.refreshList();
   }
 
-  refreshList = async () => {
+/*   refreshList = async () => {
     this.setState({ tloading: true });
     let result = await fetch("http://192.168.1.61:8881/api/news", {
       method: "GET",
@@ -45,7 +45,7 @@ class Home extends Component {
     } else {
       message.error(result.data);
     }
-  };
+  }; */
 
   render() {
     return (

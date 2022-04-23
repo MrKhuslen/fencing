@@ -29,31 +29,31 @@ class Home extends Component {
 
   componentWillMount() {
     document.querySelector("title").innerHTML = "Нүүр хуудас";
-    this.refreshList();
+    // this.refreshList();
   }
-
-  refreshList = async () => {
-    this.setState({ tloading: true });
-    let result = await fetch("http://192.168.1.61:8881/api/news", {
-      method: "GET",
-    });
-    result = await result.json();
-    if (result.success === true) {
-      this.setState({
-        tloading: false,
-        data: result.data,
-        news1: result.data.slice(0, 5),
-        news2: result.data.slice(6, 9),
-        news3: result.data.slice(10, 13),
-        news4: result.data.slice(4, 8),
-        news5: result.data.slice(18, 21),
-        news6: result.data.slice(22, 24),
+  /* 
+    refreshList = async () => {
+      this.setState({ tloading: true });
+      let result = await fetch("http://192.168.1.61:8881/api/n0ews", {
+        method: "GET",
       });
-    } else {
-      message.error(result.data);
-    }
-  };
-
+      result = await result.json();
+      if (result.success === true) {
+        this.setState({
+          tloading: false,
+          data: result.data,
+          news1: result.data.slice(0, 5),
+          news2: result.data.slice(6, 9),
+          news3: result.data.slice(10, 13),
+          news4: result.data.slice(4, 8),
+          news5: result.data.slice(18, 21),
+          news6: result.data.slice(22, 24),
+        });
+      } else {
+        message.error(result.data);
+      }
+    };
+   */
   onFinish = async (values) => {
     let test = new FormData();
     test.append("file", values.contractfile[0].originFileObj);
@@ -70,7 +70,7 @@ class Home extends Component {
     //   },
     // };
 
-    let res = await axios(options).catch((err) => {});
+    let res = await axios(options).catch((err) => { });
   };
 
   handleRadioChange = (e) => {
@@ -83,13 +83,15 @@ class Home extends Component {
       <div className="site-layout" style={{ margin: "0 16em" }}>
         <Row justify="center">
           <Col span={8} style={{ display: "flex", justifyContent: "center" }}>
-            <Card
-              hoverable
-              style={{ width: 400, height: 450 }}
-              cover={<img alt="" src={img2} />}
-            >
-              <Meta title="Шинэ элсэлт авч эхэллээ" />
-            </Card>
+            <a target="_blank" href="img_back1.jpeg">
+              <Card
+                hoverable
+                style={{ width: 400, height: 450 }}
+                cover={<img alt="" src={img2} />}
+              >
+                <Meta title="Шинэ элсэлт авч эхэллээ" />
+              </Card>
+            </a>
           </Col>
           <Col span={8} style={{ display: "flex", justifyContent: "center" }}>
             <Card

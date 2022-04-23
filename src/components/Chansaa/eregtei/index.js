@@ -97,9 +97,9 @@ class Home extends Component {
                 />
               </div>
             </Carousel>
-            <img alt="" src={img7} />
+            {/*  <img alt="" src={img7} />
             <br />
-            <img alt="" src={img8} />
+            <img alt="" src={img8} /> */}
           </div>
         </center>
       </div>

@@ -76,8 +76,8 @@ class Home extends Component {
             key="3"
             title={
               <span>
-                 <Icon type="orderedlist" />
-                Чансаа{" "}
+                <Icon type="orderedlist" />
+                Чансаа
               </span>
             }
           >
@@ -144,7 +144,7 @@ class Home extends Component {
             {this.state.key === "13" && <Bidnii />}
           </Content>
           <Footer style={{ textAlign: "center" }}>
-            {" Ant Design Layout example ©2022 Created by  DataCare"}
+            {" Ant Design Layout example ©2022 Created by  Dorjbat"}
           </Footer>
         </div>
       </Layout>

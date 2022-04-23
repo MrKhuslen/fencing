@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Carousel } from "antd";
+import { Carousel, Table, Tag, Space } from "antd";
 import tableStyle from "./index.css";
 import img4 from "../../assets/card1.jpeg";
 import img5 from "../../assets/card2.jpeg";
@@ -94,11 +94,16 @@ class Home extends Component {
               </div>
             </Carousel>
 
-            <div className="chan">
+
+
+
+
+
+            {/* <div className="chan">
               <img alt="" src={img7} />
               <br />
               <img alt="" src={img8} />
-            </div>
+            </div> */}
           </div>
         </center>
       </div>

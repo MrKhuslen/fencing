@@ -1,7 +1,6 @@
-
 .homelogo {
   height: 60px;
-  background-color: #0000;
+  background-color: #001539;
   color: #E67E22;
   font-size: x-large;
   font-weight: bolder;
@@ -10,24 +9,27 @@
   letter-spacing: 5px;
 
 }
-.site-layout{
-  /* background-image: url(../assets/blur12.jpeg); */
+
+.site-layout {
+  /* background-image: url(../assets/back2.jpg); */
   /* background-repeat: no-repeat; */
   background-attachment: fixed;
   /* background-color: #43457a; */
-  background-color:#0000;
+  /* background-color:#363636; */
   -webkit-font-smoothing: antialiased;
-  
-  
+
+
 }
-.menu{
+
+.menu {
   font-size: 15px;
 }
+
 .site-layout .site-layout-background {
   align-items: center;
-  background: #fff;
+  background: #0000;
 }
-  [data-theme="dark"] .site-layout .site-layout-background {
-    background: #ffff;
-  }
-  
+
+[data-theme="dark"] .site-layout .site-layout-background {
+  background: #0000;
+}
